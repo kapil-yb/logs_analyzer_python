@@ -8,14 +8,9 @@ bash-5.1$  python3.9 ./log_analyzer/log_analyzer.py --log_file_path="/Users/kapi
 
 parser = argparse.ArgumentParser(prog="log_analyzer.py",description='This is my help')
 
-parser.add_argument('--log_file_path',  help='Log file path')
+parser.add_argument('-l','--log_file_path', metavar='', required=True, help='Log file path')
 args = parser.parse_args()
 LogFile=args.log_file_path
-
-#parser = argparse.OptionParser() # To enable command line options
-#parser.add_option("-f","--file",dest="log_file_path")
-#options, args = parser.parse_args()
-#LogFile=options.log_file_path
 
 str1="Number of aborted transactions not cleaned up on account of reaching size limits"
 str1_cnt=0
