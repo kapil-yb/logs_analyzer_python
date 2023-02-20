@@ -1,6 +1,6 @@
 # logs_analyzer_python
 
-# Objective:
+## Objective:
 Logs parsing and analysis takes good amount of time. 
 
 For troubleshooting, we spend lot of time looking at logs for some known issues, symptoms, common error messages. Idea is to develop a script, which user can quickly on the logs to uncover any known findings, which otherwise could be taking lot of time.
