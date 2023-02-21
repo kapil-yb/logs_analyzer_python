@@ -4,7 +4,7 @@ from histogram import histogram
 
 """
 How to use?
-bash-5.1$  python3.9 log_analyzer.py -l $log_path/log.txt -H
+bash-5.1$ python3.9 log_analyzer.py -l $log_path/log.txt -H
 """
 
 parser = argparse.ArgumentParser(prog="log_analyzer.py",description='This is my help')
