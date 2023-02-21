@@ -27,7 +27,7 @@ bash-5.1$ python3.9 log_analyzer.py -l $log_path/log.txt -H
     This typically means that we need to run compaction on offending tablets
     Check this case for more details
     
-    https://yugabyte.zendesk.com/agent/tickets/5416
+    https://xxxxxxxx.zendesk.com/agent/tickets/5416
     
     ============================================================================
     
