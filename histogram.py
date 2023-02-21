@@ -1,4 +1,5 @@
 # This file should generate histogram of the log file based on date and time
+from collections import Counter 
 
 def histogram(Logfile):
     d=dict() # To store the keys ( date and hours) and respective counter
@@ -16,4 +17,22 @@ def histogram(Logfile):
 
     for key in list(d.keys()):
         print("The count of {} is {}".format(key,d[key]))
+    return None
+
+def word_count(Logfile):
+    count=0
+    d=dict() # To store the keys ( date and hours) and respective counter
+    with open (Logfile, 'r') as input_file:
+        for line in input_file:
+            for word in line.split():
+                if word in d: # Populating dictionary with new keys, and increment counter for existing keys
+                    d[word]=d[word]+1
+                else:  
+                    d[word]=1
+                
+    print ("Generating top 20 word count\n")
+    top_20 = sorted(d.items(), key = lambda x:x[1], reverse = True)[:20]
+    for k, v in top_20:
+        print (k, v)
+
     return None

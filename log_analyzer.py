@@ -1,16 +1,17 @@
 #!/usr/bin/env python
 import argparse
-from histogram import histogram
+from histogram import *
 
 """
 How to use?
-bash-5.1$ python3.9 log_analyzer.py -l $log_path/log.txt -H
+bash-5.1$  python3.9 log_analyzer.py -l $log_path/log.txt -H
 """
 
 parser = argparse.ArgumentParser(prog="log_analyzer.py",description='This is my help')
 
 parser.add_argument('-l','--log_file_path', metavar='', required=True, help='Log file path')
 parser.add_argument("-H",'--histogram', action="store_true",help='Generate histogram graph')
+parser.add_argument("-wc",'--word_count', action="store_true",help='List top 20 word count')
 parser.add_argument('-A','--ALL', action="store_true", help='FULL Health Check')
 args = parser.parse_args()
 LogFile=args.log_file_path
@@ -36,7 +37,7 @@ def str1_func():
    )
 
 
-str2="Ignoring partially flushed segment in write ahead log"
+str2="Rejecting Write request: Soft memory limit exceeded"
 str2_cnt=0
 def str2_func():
    print(
@@ -47,7 +48,7 @@ def str2_func():
     + str2 +
     '''
     
-    This typically means that we .........
+    This typically means that we have overloaded system
     
     Check this KB for more details
     
@@ -71,7 +72,7 @@ if __name__ == '__main__':
     if args.histogram or args.ALL:
         print ("Most number of logs created time period")
         histogram(LogFile)
-
-
+    if args.word_count or args.ALL:
+        word_count(LogFile)
 
             
