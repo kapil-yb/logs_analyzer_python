@@ -1,14 +1,17 @@
 #!/usr/bin/env python
 import argparse
+from histogram import histogram
 
 """
 How to use?
-bash-5.1$  python3.9 ./log_analyzer/log_analyzer.py --log_file_path="/Users/kapilmaheshwari/Downloads/yb-support-bundle-tkp-unified-oh-20230201032350.672-logs/universe_logs/tserver/logs/yb-tserver.yb-prod-cdp-api-n1.yugabyte.log.INFO.20230131-022159.10016"
+bash-5.1$  python3.9 log_analyzer.py -l $log_path/log.txt -H
 """
 
 parser = argparse.ArgumentParser(prog="log_analyzer.py",description='This is my help')
 
 parser.add_argument('-l','--log_file_path', metavar='', required=True, help='Log file path')
+parser.add_argument("-H",'--histogram', action="store_true",help='Generate histogram graph')
+parser.add_argument('-A','--ALL', action="store_true", help='FULL Health Check')
 args = parser.parse_args()
 LogFile=args.log_file_path
 
@@ -25,7 +28,7 @@ def str1_func():
     This typically means that we need to run compaction on offending tablets
     Check this case for more details
     
-    https://yugabyte.zendesk.com/agent/tickets/5416
+    https://xxxxxxxxx.zendesk.com/agent/tickets/5416
     
     ============================================================================
     
@@ -64,6 +67,11 @@ if __name__ == '__main__':
                 str2_cnt=str2_cnt+1
             else:
                 continue
+
+    if args.histogram or args.ALL:
+        print ("Most number of logs created time period")
+        histogram(LogFile)
+
 
 
             
