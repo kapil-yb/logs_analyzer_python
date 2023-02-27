@@ -1,0 +1,14 @@
+I0623 15:44:05.725900   162 mem_tracker.cc:912] Number of aborted transactions not cleaned up on account of reaching size limits
+I0623 15:45:05.379797   180 mem_tracker.cc:912] Rejecting CQL call: Soft memory limit exceeded (at 85.47% of capacity), score: 0.99 [suppressed 6 similar messages]
+{"level":"ERROR","timestamp":"2022-06-23 15:35:51,144","thread":"main","file":"WorkflowStructuredStreaming.java","class":"com.inn.sparkrunner.workflowenginestreaming.WorkflowStructuredStreaming","line":"40","message":"Error in WorkflowStructuredStreaming java.io.IOException: Failed to open native connection to Cassandra at {dp.yb.nv.prod.rmn.local:32505} :: Could not reach any contact point, make sure you've provided valid addresses (showing first 1 nodes, use getAllErrors() for more): Node(endPoint=dp.yb.nv.prod.rmn.local/240b:c010:107:53f8:6946:2:3:301:32505, hostId=null, hashCode=4a361676): [java.lang.IllegalArgumentException: [s0|control|id: 0x7b03d24d, L:/240b:c020:207:5479:b424:2:0:4dbf:44304 - R:dp.yb.nv.prod.rmn.local/240b:c010:107:53f8:6946:2:3:301:32505] Protocol initialization request, step 1 (OPTIONS): server replied with unexpected error code [OVERLOADED]: ]
+I0623 15:45:05.725900   162 mem_tracker.cc:912] Rejecting CQL call: Soft memory limit exceeded (at 85.28% of capacity), score: 0.98
+I0623 15:45:05.725900   162 mem_tracker.cc:912] Rejecting CQL call: Soft memory limit exceeded (at 85.28% of capacity), score: 0.98
+I0623 15:45:05.725900   162 mem_tracker.cc:912] Rejecting CQL call: Soft memory limit exceeded (at 85.28% of capacity), score: 0.98
+I0623 15:45:05.725900   162 mem_tracker.cc:912] Rejecting CQL call: Soft memory limit exceeded (at 85.28% of capacity), score: 0.98
+I0623 15:45:05.725900   162 mem_tracker.cc:912] Number of aborted transactions not cleaned up on account of reaching size limits
+I0623 15:45:05.725900   162 mem_tracker.cc:912] Rejecting CQL call: Soft memory limit exceeded (at 85.28% of capacity), score: 0.98
+I0623 15:48:05.725900   162 mem_tracker.cc:912] Rejecting CQL call: Soft memory limit exceeded (at 85.28% of capacity), score: 0.98
+I0623 15:45:05.725900   162 mem_tracker.cc:912] Number of aborted transactions not cleaned up on account of reaching size limits
+I0623 15:45:05.725900   162 mem_tracker.cc:912] Rejecting CQL call: Soft memory limit exceeded (at 85.28% of capacity), score: 0.98
+I0623 15:45:05.725900   162 mem_tracker.cc:912] Rejecting CQL call: Soft memory limit exceeded (at 85.28% of capacity), score: 0.98
+I0623 15:49:05.725900   162 mem_tracker.cc:912] Number of aborted transactions not cleaned up on account of reaching size limits
