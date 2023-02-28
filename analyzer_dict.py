@@ -14,6 +14,7 @@
 regex_patterns = {
     "Rejecting Write request: Soft memory limit exceeded": r"Soft memory limit exceeded",
     "Number of aborted transactions not cleaned up on account of reaching size limits": r"Number of aborted transactions not cleaned up on account of reaching size limits",
+    "Long wait for safe op id": r"Long wait for safe op id",
     "Sample log message": r"Sample log message",
     # Add more log messages here
 }
@@ -23,6 +24,7 @@ solutions = {
     "Number of aborted transactions not cleaned up on account of reaching size limits": """This typically means that we need to run compaction on offending tablets
     Check this case for more details
     https://yugabyte.zendesk.com/agent/tickets/5416""",
+    "Long wait for safe op id": """This means that Write on disk is slow. This could be because of slow disk or load on the system.""",
     "Sample log message": "Solution for Sample log message error",
     # Add more solutions here
 }
