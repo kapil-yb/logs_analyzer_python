@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import argparse
-from dateparser import parse as dp
 from histogram import *
 
 """
@@ -16,12 +15,6 @@ parser.add_argument("-wc",'--word_count', action="store_true",help='List top 20 
 parser.add_argument('-A','--ALL', action="store_true", help='FULL Health Check')
 args = parser.parse_args()
 LogFile=args.log_file_path
-
-# Sample line
-line="I0227 21:01:34.345897 126242816 call_home.cc:75] Skipping collector MetricsCollector because it has a higher collection level than the requested one"
-
-def getDateTime(line):
-    return line.split()[0][1:] + " " + line.split()[1]
 
 str1="Number of aborted transactions not cleaned up on account of reaching size limits"
 str1_cnt=0
