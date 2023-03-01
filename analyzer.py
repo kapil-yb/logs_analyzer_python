@@ -1,16 +1,21 @@
+#!/usr/bin/env python
+
+
 from analyzer_dict import regex_patterns, solutions
 from collections import OrderedDict
 import datetime
 import argparse
 import re
 import tabulate
-
+from histogram import *
 
 # Command line arguments
 
 parser = argparse.ArgumentParser(description="Log Analyzer for YugabyteDB logs")
 parser.add_argument("-l", "--log_file_path", required=True, help="Log file path")
 parser.add_argument("-H", "--histogram", action="store_true", help="Generate histogram graph")
+parser.add_argument("-wc",'--word_count', action="store_true",help='List top 20 word count')
+parser.add_argument('-A','--ALL', action="store_true", help='FULL Health Check')
 parser.add_argument("-t", "--from_time", dest="start_time", help="From time in format MMDD HH:MM")
 parser.add_argument("-T", "--to_time", dest="end_time", help="To time in format MMDD HH:MM")
 args = parser.parse_args()
@@ -56,4 +61,11 @@ with open(logFilePath, "r") as f:                                               
                 info["solution"],
             ]
         )
-    print(tabulate.tabulate(table, headers=["Occurrences", "Message", "First Occurrence", "Last Occurrence", "Solution"], tablefmt="simple_grid"))
+    print(tabulate.tabulate(table, headers=["Occurrences", "Message", "First Occurrence", "Last Occurrence", "Troubleshooting Tips"], tablefmt="fancy_grid"))
+
+if args.histogram or args.ALL:
+   print ("\nHistogram of logs creating time period\n")
+   histogram(logFilePath)
+if args.word_count or args.ALL:
+   print ("\nMost widely used word in logs\n")
+   word_count(logFilePath)

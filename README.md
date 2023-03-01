@@ -7,38 +7,23 @@ For troubleshooting, we spend lot of time looking at logs for some known issues,
 
 How to run the script?
 ```
-bash-5.1$ python3.9 log_analyzer.py -l $log_path/log.txt -H 
-============================================================================
-    We found following message in the logs
+bash-5.1$ ./analyzer.py --log_file_path sample.log -H
+╒═══════════════╤══════════════════════════════════════════════════════════════════════════════════╤══════════════════════╤══════════════════════╤═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╕
+│   Occurrences │ Message                                                                          │ First Occurrence     │ Last Occurrence      │ Troubleshooting Tips                                                                                                                                                │
+╞═══════════════╪══════════════════════════════════════════════════════════════════════════════════╪══════════════════════╪══════════════════════╪═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╡
+│             9 │ Rejecting Write request: Soft memory limit exceeded                              │ 0623 14:45:05.379797 │ 0623 16:45:05.725900 │ This typically means that we have overloaded system.                                                                                                                │
+│               │                                                                                  │                      │                      │     Check this KB for more details: https://support.yugabyte.com/hc/en-us/articles/4403688844045-Throttling-mechanism-in-YugaByte-TServer-due-to-high-Memory-Usage- │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────┼──────────────────────┼──────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│             4 │ Number of aborted transactions not cleaned up on account of reaching size limits │ 0623 14:44:05.725900 │ 0623 16:49:05.725900 │ This typically means that we need to run compaction on offending tablets                                                                                            │
+│               │                                                                                  │                      │                      │     Check this case for more details                                                                                                                                │
+│               │                                                                                  │                      │                      │     https://yugabyte.zendesk.com/agent/tickets/5416                                                                                                                 │
+╘═══════════════╧══════════════════════════════════════════════════════════════════════════════════╧══════════════════════╧══════════════════════╧═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╛
 
-    Ignoring partially flushed segment in write ahead log
-    
-    This typically means that we .........
-    
-    Check this KB for more details
-    
-    ============================================================================
-    
-    
-============================================================================
-    We found following message in the logs
-    Number of aborted transactions not cleaned up on account of reaching size limits
-    
-    This typically means that we need to run compaction on offending tablets
-    Check this case for more details
-    
-    https://xxxxxxxx.zendesk.com/agent/tickets/5416
-    
-    ============================================================================
-    
-    
-Most number of logs created time period
-The count of 0131 02:2 is 26231
-The count of 0131 02:3 is 4432
-The count of 0131 02:4 is 2522
-The count of 0131 04:5 is 2672
-.
-.
-.
+Histogram of logs creating time period
+
+The count of 0623 14:4 is 5
+The count of 0623 16:4 is 4
+The count of 0623 15:4 is 4
+bash-5.1$
 ``` 
 
